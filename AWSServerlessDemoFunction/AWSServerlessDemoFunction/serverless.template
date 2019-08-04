@@ -13,7 +13,7 @@
 				"CodeUri": "./LambdaCode",
 				"MemorySize": 256,
 				"Timeout": 30,
-				"Role": "arn:aws:iam::666873214275:role/service-role/myLambdaRole",
+				"Role": "arn:aws:iam::---:role/service-role/myLambdaRole",
 				"Policies": [ "AWSLambdaBasicExecutionRole" ],
 				"Events": {
 					"PutResource": {
