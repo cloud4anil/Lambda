@@ -1,0 +1,38 @@
+{
+	"AWSTemplateFormatVersion" : "2010-09-09",
+	"Transform" : "AWS::Serverless-2016-10-31",
+	"Description" : "An AWS Serverless Application.",
+
+	"Resources" : {
+
+		"Get" : {
+		"Type" : "AWS::Serverless::Function",
+			"Properties": {
+				"Handler": "AWSServerlessDemoFunction::AWSServerlessDemoFunction.Functions::Get",
+				"Runtime": "dotnetcore2.1",
+				"CodeUri": "./LambdaCode",
+				"MemorySize": 256,
+				"Timeout": 30,
+				"Role": "arn:aws:iam::666873214275:role/service-role/myLambdaRole",
+				"Policies": [ "AWSLambdaBasicExecutionRole" ],
+				"Events": {
+					"PutResource": {
+						"Type": "Api",
+						"Properties": {
+							"Path": "/",
+							"Method": "GET"
+						}
+					}
+				}
+			}
+		}
+
+	},
+
+	"Outputs" : {
+		"ApiURL" : {
+			"Description" : "API endpoint URL for Prod environment",
+			"Value" : { "Fn::Sub" : "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/" }
+		}
+	}
+}
