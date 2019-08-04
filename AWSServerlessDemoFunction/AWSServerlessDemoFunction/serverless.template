@@ -10,10 +10,10 @@
 			"Properties": {
 				"Handler": "AWSServerlessDemoFunction::AWSServerlessDemoFunction.Functions::Get",
 				"Runtime": "dotnetcore2.1",
-				"CodeUri": "./LambdaCode",
+				"CodeUri": "",
 				"MemorySize": 256,
 				"Timeout": 30,
-				"Role": "arn:aws:iam::---:role/service-role/myLambdaRole",
+				"Role": null,
 				"Policies": [ "AWSLambdaBasicExecutionRole" ],
 				"Events": {
 					"PutResource": {
